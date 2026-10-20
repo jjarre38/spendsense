@@ -1,0 +1,38 @@
+<!-- Nav bar — only shown when authenticated -->
+<nav *ngIf="authService.isAuthenticated()"
+     style="background:var(--ss-surface);border-bottom:1px solid var(--ss-border);">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between h-14">
+
+      <!-- Brand + links -->
+      <div class="flex items-center gap-8">
+        <span class="font-bold text-base tracking-tight"
+              style="color:var(--ss-blue-lt);letter-spacing:0.02em;">
+          SPENDSENSE
+        </span>
+        <a routerLink="/dashboard" routerLinkActive="ss-nav-active"
+           style="font-size:0.8125rem;color:var(--ss-muted-lt);transition:color .15s;"
+           class="ss-nav-link">Dashboard</a>
+        <a routerLink="/upload" routerLinkActive="ss-nav-active"
+           style="font-size:0.8125rem;color:var(--ss-muted-lt);transition:color .15s;"
+           class="ss-nav-link">Upload</a>
+      </div>
+
+      <!-- Sign out -->
+      <button (click)="logout()"
+              style="font-size:0.8125rem;color:var(--ss-muted-lt);transition:color .15s;"
+              onmouseenter="this.style.color='var(--ss-red)'"
+              onmouseleave="this.style.color='var(--ss-muted-lt)'">
+        Sign out
+      </button>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .ss-nav-link:hover { color: var(--ss-text) !important; }
+  .ss-nav-active { color: var(--ss-blue-lt) !important; font-weight: 500; }
+</style>
+
+<!-- Page content -->
+<router-outlet></router-outlet>

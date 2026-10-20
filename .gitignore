@@ -1,0 +1,61 @@
+# ──────────────────────────────────────────────
+# Secrets — never commit
+# ──────────────────────────────────────────────
+application-local.properties
+application-*.local.properties
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+
+# ──────────────────────────────────────────────
+# Java / Maven (spendsense-api)
+# ──────────────────────────────────────────────
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+hs_err_pid*
+replay_pid*
+
+# ──────────────────────────────────────────────
+# Node / Angular (spendsense-ui) — see also spendsense-ui/.gitignore
+# ──────────────────────────────────────────────
+node_modules/
+dist/
+.angular/
+coverage/
+npm-debug.log*
+yarn-error.log*
+
+# ──────────────────────────────────────────────
+# Uploaded statements / local data (may contain personal financial info)
+# ──────────────────────────────────────────────
+uploads/
+*.pdf
+
+# ──────────────────────────────────────────────
+# Logs
+# ──────────────────────────────────────────────
+logs/
+*.log
+
+# ──────────────────────────────────────────────
+# IDEs and OS files
+# ──────────────────────────────────────────────
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.factorypath
+.vscode/*
+!spendsense-ui/.vscode/
+.DS_Store
+Thumbs.db
+
+# Local Claude Code settings
+.claude/settings.local.json

@@ -1,0 +1,8 @@
+# Copy to application-local.properties and fill in real values.
+# application-local.properties is gitignored — never commit secrets.
+spring.datasource.password=change-me
+# Long random string (32+ chars), e.g. `openssl rand -base64 32`
+jwt.secret=change-me
+claude.api.key=YOUR_API_KEY_HERE
+# Required if the API key is not scoped to a workspace (find it in the Claude Console)
+claude.workspace.id=

@@ -1,0 +1,61 @@
+/* ── SpendSense dark theme ── */
+:root {
+  --ss-bg:        #0a0a0f;
+  --ss-surface:   #111118;
+  --ss-surface2:  #16161f;
+  --ss-border:    #1e1e2e;
+  --ss-blue:      #2563eb;
+  --ss-blue-lt:   #3b82f6;
+  --ss-blue-dim:  #1d3461;
+  --ss-text:      #f1f5f9;
+  --ss-muted:     #475569;
+  --ss-muted-lt:  #64748b;
+  --ss-red:       #ef4444;
+  --ss-green:     #22c55e;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--ss-bg);
+  color: var(--ss-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--ss-bg); }
+::-webkit-scrollbar-thumb { background: var(--ss-border); }
+::-webkit-scrollbar-thumb:hover { background: var(--ss-muted); }
+
+/* Override @tailwindcss/forms defaults to match dark theme */
+input, select, textarea {
+  background-color: var(--ss-surface2) !important;
+  border-color: var(--ss-border) !important;
+  color: var(--ss-text) !important;
+  border-radius: 0 !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--ss-blue) !important;
+  box-shadow: 0 0 0 1px var(--ss-blue) !important;
+  outline: none;
+}
+
+option {
+  background-color: var(--ss-surface2);
+  color: var(--ss-text);
+}
+
+/* Blue glow utility */
+.ss-glow {
+  box-shadow: 0 0 0 1px var(--ss-blue), 0 4px 24px rgba(37, 99, 235, 0.15);
+}

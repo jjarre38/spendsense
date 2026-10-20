@@ -1,0 +1,93 @@
+<div class="min-h-screen flex items-center justify-center px-4"
+     style="background:var(--ss-bg);">
+  <div class="w-full max-w-sm">
+
+    <!-- Brand -->
+    <div class="mb-10 text-center">
+      <div class="inline-flex items-center gap-2 mb-4">
+        <div style="width:32px;height:32px;background:var(--ss-blue);display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-size:1.125rem;font-weight:700;letter-spacing:0.05em;color:var(--ss-text);">SPENDSENSE</span>
+      </div>
+      <p style="font-size:0.875rem;color:var(--ss-muted-lt);">Create your account</p>
+    </div>
+
+    <!-- Card -->
+    <div style="background:var(--ss-surface);border:1px solid var(--ss-border);padding:2rem;">
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate class="space-y-5">
+
+        <!-- Email -->
+        <div>
+          <label for="email"
+                 style="display:block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--ss-muted-lt);margin-bottom:0.375rem;">
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            style="display:block;width:100%;padding:0.625rem 0.75rem;font-size:0.875rem;border:1px solid var(--ss-border);background:var(--ss-surface2);color:var(--ss-text);"
+          />
+          <p *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+             style="margin-top:0.25rem;font-size:0.75rem;color:var(--ss-red);">
+            Enter a valid email.
+          </p>
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label for="password"
+                 style="display:block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--ss-muted-lt);margin-bottom:0.375rem;">
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            autocomplete="new-password"
+            placeholder="Min. 8 characters"
+            style="display:block;width:100%;padding:0.625rem 0.75rem;font-size:0.875rem;border:1px solid var(--ss-border);background:var(--ss-surface2);color:var(--ss-text);"
+          />
+          <p *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
+             style="margin-top:0.25rem;font-size:0.75rem;color:var(--ss-red);">
+            Password must be at least 8 characters.
+          </p>
+        </div>
+
+        <!-- Error -->
+        <p *ngIf="error"
+           style="font-size:0.8125rem;color:var(--ss-red);background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);padding:0.5rem 0.75rem;">
+          {{ error }}
+        </p>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          [disabled]="loading"
+          style="width:100%;padding:0.75rem;font-size:0.875rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;background:var(--ss-blue);color:#fff;border:none;cursor:pointer;transition:background .15s;"
+          onmouseenter="if(!this.disabled)this.style.background='var(--ss-blue-lt)'"
+          onmouseleave="if(!this.disabled)this.style.background='var(--ss-blue)'"
+        >
+          <span *ngIf="!loading">Create Account</span>
+          <span *ngIf="loading">Creating account…</span>
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Login link -->
+    <p style="margin-top:1.5rem;text-align:center;font-size:0.8125rem;color:var(--ss-muted-lt);">
+      Already have an account?
+      <a routerLink="/login"
+         style="color:var(--ss-blue-lt);font-weight:500;text-decoration:none;"
+         onmouseenter="this.style.textDecoration='underline'"
+         onmouseleave="this.style.textDecoration='none'">Sign in</a>
+    </p>
+
+  </div>
+</div>
